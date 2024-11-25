@@ -1,1 +1,222 @@
-const _0x1d599a=_0x5b21;(function(_0x28073f,_0xec93f){const _0x4e2a7c=_0x5b21,_0x239eae=_0x28073f();while(!![]){try{const _0x1f6efb=-parseInt(_0x4e2a7c(0x182))/0x1+-parseInt(_0x4e2a7c(0x183))/0x2*(-parseInt(_0x4e2a7c(0x175))/0x3)+parseInt(_0x4e2a7c(0x16f))/0x4+parseInt(_0x4e2a7c(0x1ac))/0x5*(-parseInt(_0x4e2a7c(0x168))/0x6)+parseInt(_0x4e2a7c(0x1c5))/0x7*(parseInt(_0x4e2a7c(0x1bb))/0x8)+parseInt(_0x4e2a7c(0x1b7))/0x9+-parseInt(_0x4e2a7c(0x1a6))/0xa*(parseInt(_0x4e2a7c(0x1b2))/0xb);if(_0x1f6efb===_0xec93f)break;else _0x239eae['push'](_0x239eae['shift']());}catch(_0x5dc4e7){_0x239eae['push'](_0x239eae['shift']());}}}(_0xa90b,0x62133));const fs=require('fs'),axios=require(_0x1d599a(0x1d2)),displayBanner=require(_0x1d599a(0x189)),colors=require(_0x1d599a(0x180)),logger=require(_0x1d599a(0x17a)),CONFIG={'baseUrl':_0x1d599a(0x186),'dataFile':_0x1d599a(0x1a5),'defaultInterval':0x1,'logTokenLength':0xa,'axiosTimeout':0x7530,'retryAttempts':0x3,'retryDelay':0x1388},ENDPOINTS={'health':_0x1d599a(0x1d5),'nodes':_0x1d599a(0x1ab),'ping':_0x2604df=>_0x1d599a(0x1be)+_0x2604df+_0x1d599a(0x1ae)},Utils={'sleep':_0x557fa2=>new Promise(_0x5a6414=>setTimeout(_0x5a6414,_0x557fa2)),'getTimestamp':()=>new Date()[_0x1d599a(0x188)](),'truncateString':(_0x5b6bc5,_0x1d30c4)=>_0x5b6bc5?_0x5b6bc5[_0x1d599a(0x1a3)](0x0,_0x1d30c4)+_0x1d599a(0x1d4):'unknown','parseJwt':_0x4b6a60=>{const _0x265c3a=_0x1d599a;try{const _0x184a40=_0x4b6a60[_0x265c3a(0x1b1)]('.')[0x1],_0x3277a0=Buffer[_0x265c3a(0x1a0)](_0x184a40,'base64')[_0x265c3a(0x177)](_0x265c3a(0x1cb));return JSON[_0x265c3a(0x1b9)](_0x3277a0);}catch(_0x55ecd9){return null;}},'formatDate':_0x4b6b68=>{const _0x99b612=_0x1d599a,_0x1ab920=new Date(_0x4b6b68*0x3e8);return _0x1ab920[_0x99b612(0x1ba)](_0x99b612(0x1d3),{'year':_0x99b612(0x1b4),'month':'2-digit','day':'2-digit','hour':_0x99b612(0x16b),'minute':_0x99b612(0x16b),'hour12':![]});}};class ApiClient{constructor(_0x20747c){const _0x18a3d5=_0x1d599a;this[_0x18a3d5(0x17f)]=axios[_0x18a3d5(0x1c1)]({'baseURL':_0x20747c,'timeout':CONFIG[_0x18a3d5(0x196)]}),this[_0x18a3d5(0x17f)][_0x18a3d5(0x167)][_0x18a3d5(0x18e)][_0x18a3d5(0x1af)](_0x46dd83=>{const _0x3c1373=_0x18a3d5;if(_0x46dd83[_0x3c1373(0x1c8)][_0x3c1373(0x198)]){const _0x5791ed=_0x46dd83[_0x3c1373(0x1c8)][_0x3c1373(0x198)]['split']('\x20')[0x1];if(_0x5791ed){const _0x3bb904=Utils['parseJwt'](_0x5791ed);if(_0x3bb904){}}}return _0x46dd83;},_0x2d7cd3=>Promise[_0x18a3d5(0x1bd)](_0x2d7cd3)),this[_0x18a3d5(0x17f)]['interceptors'][_0x18a3d5(0x16e)][_0x18a3d5(0x1af)](_0x35d7c4=>_0x35d7c4,async _0x32d3e6=>{const _0x3f5b7f=_0x18a3d5;if(_0x32d3e6[_0x3f5b7f(0x16e)]){const {status:_0x26e732,data:_0x29f238}=_0x32d3e6[_0x3f5b7f(0x16e)];throw new Error('API\x20Error:\x20'+_0x26e732+_0x3f5b7f(0x1b8)+JSON['stringify'](_0x29f238));}throw _0x32d3e6;});}async[_0x1d599a(0x1b5)](){const _0x3d2c03=_0x1d599a;try{const _0x31f62a=await this[_0x3d2c03(0x1ca)]('get',ENDPOINTS['health']);return _0x31f62a['status']==='ok';}catch(_0x5bb22a){return logger[_0x3d2c03(0x1d0)](colors[_0x3d2c03(0x1d0)]+_0x3d2c03(0x1b3)+_0x5bb22a['message']+colors['reset']),![];}}async[_0x1d599a(0x1ca)](_0x4f780f,_0x41e829,_0x288f0f=null,_0x6109ca={},_0x9a14a=0x0){const _0x5ebef9=_0x1d599a;try{const _0x2a0bbd=await this[_0x5ebef9(0x17f)]({'method':_0x4f780f,'url':_0x41e829,'data':_0x288f0f,'headers':_0x6109ca});return _0x2a0bbd[_0x5ebef9(0x1cf)];}catch(_0x4786c5){if(_0x9a14a<CONFIG[_0x5ebef9(0x184)])return logger[_0x5ebef9(0x19f)](colors[_0x5ebef9(0x16c)]+_0x5ebef9(0x1a9)+(_0x9a14a+0x1)+'/'+CONFIG[_0x5ebef9(0x184)]+')...'+colors[_0x5ebef9(0x18c)]),await Utils['sleep'](CONFIG[_0x5ebef9(0x19e)]),this['makeRequest'](_0x4f780f,_0x41e829,_0x288f0f,_0x6109ca,_0x9a14a+0x1);throw _0x4786c5;}}}class AccountManager{constructor(){const _0x5d0903=_0x1d599a;this[_0x5d0903(0x18f)]=[];}[_0x1d599a(0x19a)](){const _0x1e7b27=_0x1d599a;try{const _0x7bf9f4=fs[_0x1e7b27(0x195)](CONFIG[_0x1e7b27(0x197)],_0x1e7b27(0x1cb)),_0x2a4a0a=_0x7bf9f4['split']('\x0a')[_0x1e7b27(0x1a1)](_0x43a833=>_0x43a833[_0x1e7b27(0x17d)]())[_0x1e7b27(0x1c2)]('');return this[_0x1e7b27(0x18f)]=[_0x2a4a0a],logger[_0x1e7b27(0x194)](colors[_0x1e7b27(0x194)]+_0x1e7b27(0x1cc)+this['accounts'][_0x1e7b27(0x1bf)]+_0x1e7b27(0x179)+colors[_0x1e7b27(0x18c)]),!![];}catch(_0x3e01c2){return logger[_0x1e7b27(0x1d0)](colors[_0x1e7b27(0x1d0)]+_0x1e7b27(0x19b)+_0x3e01c2[_0x1e7b27(0x181)]+colors[_0x1e7b27(0x18c)]),![];}}['getAccounts'](){const _0x48ad5d=_0x1d599a;return this[_0x48ad5d(0x18f)];}}class NodeManager{constructor(_0x1a6686){this['apiClient']=_0x1a6686;}async[_0x1d599a(0x190)](_0x152806){const _0x8fe2a=_0x1d599a;try{return await this[_0x8fe2a(0x1d6)][_0x8fe2a(0x1ca)](_0x8fe2a(0x169),ENDPOINTS['nodes'],null,{'Authorization':_0x8fe2a(0x178)+_0x152806,'Accept':_0x8fe2a(0x1d1)});}catch(_0x38c5a0){return logger['error'](colors[_0x8fe2a(0x1d0)]+_0x8fe2a(0x17b)+_0x38c5a0[_0x8fe2a(0x181)]+colors['reset']),[];}}async[_0x1d599a(0x18d)](_0x527310,_0x183b36){const _0x560b6f=_0x1d599a;try{const _0x42a816=await this[_0x560b6f(0x1d6)][_0x560b6f(0x1ca)]('post',ENDPOINTS[_0x560b6f(0x1a4)](_0x183b36),{},{'Authorization':_0x560b6f(0x178)+_0x527310,'Accept':'application/json'});return _0x42a816['status']==='ok';}catch(_0x41612){return logger[_0x560b6f(0x1d0)](colors[_0x560b6f(0x1d0)]+_0x560b6f(0x18b)+_0x41612[_0x560b6f(0x181)]+colors[_0x560b6f(0x18c)]),![];}}}class PingAutomation{constructor(){const _0x1ad40a=_0x1d599a;this[_0x1ad40a(0x1d6)]=new ApiClient(CONFIG[_0x1ad40a(0x1a7)]),this[_0x1ad40a(0x1b6)]=new AccountManager(),this[_0x1ad40a(0x1cd)]=new NodeManager(this[_0x1ad40a(0x1d6)]),this[_0x1ad40a(0x171)]=![];}async[_0x1d599a(0x191)](){const _0x5f0bd4=_0x1d599a;logger['info'](colors['info']+'Performing\x20health\x20check...'+colors['reset']);const _0x593f09=await this[_0x5f0bd4(0x1d6)][_0x5f0bd4(0x1b5)]();if(!_0x593f09)return logger[_0x5f0bd4(0x1d0)](colors['error']+'Service\x20is\x20not\x20healthy,\x20skipping\x20ping\x20cycle'+colors[_0x5f0bd4(0x18c)]),![];return logger[_0x5f0bd4(0x194)](colors[_0x5f0bd4(0x194)]+_0x5f0bd4(0x1c3)+colors['reset']),!![];}async[_0x1d599a(0x1bc)](_0x12bf4a){const _0x4d556=_0x1d599a,_0x1d3d64=Utils[_0x4d556(0x1c6)](_0x12bf4a),_0x373624=await this['nodeManager'][_0x4d556(0x190)](_0x12bf4a),_0xe2634b=Utils['truncateString'](_0x12bf4a,CONFIG[_0x4d556(0x173)]),_0x370552=_0x1d3d64?Utils['formatDate'](_0x1d3d64['iat']):_0x4d556(0x1ad),_0x3ada03=_0x1d3d64?Utils[_0x4d556(0x172)](_0x1d3d64['exp']):'unknown';for(const _0x2d5111 of _0x373624){const _0x2e396d=_0x2d5111[_0x4d556(0x18a)],_0x561daf=Utils[_0x4d556(0x1c9)](_0x2e396d,CONFIG['logTokenLength']),_0x1405bb=await this['nodeManager'][_0x4d556(0x18d)](_0x12bf4a,_0x2e396d),_0x127be5=colors[_0x4d556(0x16a)]+_0x4d556(0x193)+_0xe2634b+colors[_0x4d556(0x18c)]+'\x20'+colors['accountName']+_0x4d556(0x19c)+(_0x1d3d64?.['userId']||_0x4d556(0x1ad))+colors[_0x4d556(0x18c)]+'\x20'+colors[_0x4d556(0x1a8)]+'|\x20Issued:\x20'+_0x370552+_0x4d556(0x199)+_0x3ada03+']'+colors[_0x4d556(0x18c)]+'\x20'+colors[_0x4d556(0x170)]+_0x4d556(0x176)+_0x561daf+colors['reset']+_0x4d556(0x174)+(_0x1405bb?colors[_0x4d556(0x194)]+'Success':colors['error']+_0x4d556(0x16d))+colors[_0x4d556(0x18c)];_0x1405bb?logger[_0x4d556(0x194)](_0x127be5):logger['error'](_0x127be5);}}async[_0x1d599a(0x187)](_0x2903d6=CONFIG[_0x1d599a(0x1b0)]){const _0x290ab5=_0x1d599a;if(this[_0x290ab5(0x171)]){logger[_0x290ab5(0x19f)](colors[_0x290ab5(0x16c)]+'Automation\x20is\x20already\x20running'+colors[_0x290ab5(0x18c)]);return;}if(!this[_0x290ab5(0x1b6)]['loadAccounts']()){logger['error'](colors[_0x290ab5(0x1d0)]+'Failed\x20to\x20load\x20accounts,\x20stopping\x20automation'+colors['reset']);return;}this[_0x290ab5(0x171)]=!![],logger[_0x290ab5(0x1a8)](colors[_0x290ab5(0x1a8)]+_0x290ab5(0x1c0)+colors['brightCyan']+_0x2903d6+colors[_0x290ab5(0x1a8)]+_0x290ab5(0x1a2)+colors[_0x290ab5(0x18c)]);while(this[_0x290ab5(0x171)]){const _0x118ff4=await this[_0x290ab5(0x191)]();if(!_0x118ff4){await Utils['sleep'](0x2710);continue;}const _0x27bb7a=this[_0x290ab5(0x1b6)][_0x290ab5(0x192)]();for(const _0x5ba87f of _0x27bb7a){await this[_0x290ab5(0x1bc)](_0x5ba87f)['catch'](_0x5b6e18=>{const _0x4c3627=_0x290ab5;logger[_0x4c3627(0x1d0)](colors[_0x4c3627(0x1d0)]+_0x4c3627(0x185)+_0x5b6e18[_0x4c3627(0x181)]+colors[_0x4c3627(0x18c)]);});}await Utils['sleep'](_0x2903d6*0x3c*0x3e8);}}[_0x1d599a(0x1ce)](){const _0x33db69=_0x1d599a;this[_0x33db69(0x171)]=![],logger[_0x33db69(0x19f)](colors[_0x33db69(0x16c)]+'Stopping\x20ping\x20automation'+colors[_0x33db69(0x18c)]);}}async function main(){const _0x67ac0e=_0x1d599a;displayBanner();const _0x30fd39=new PingAutomation();process['on'](_0x67ac0e(0x17e),()=>{const _0x1d0f72=_0x67ac0e;_0x30fd39[_0x1d0f72(0x1ce)](),process[_0x1d0f72(0x19d)](0x0);}),process['on']('uncaughtException',_0x34c083=>{const _0x51e9cf=_0x67ac0e;logger[_0x51e9cf(0x1d0)](colors['error']+_0x51e9cf(0x1c4)+_0x34c083['message']+colors[_0x51e9cf(0x18c)]),_0x30fd39[_0x51e9cf(0x1ce)](),process[_0x51e9cf(0x19d)](0x1);}),process['on'](_0x67ac0e(0x17c),(_0x1b9238,_0xc74c2d)=>{const _0xc53a65=_0x67ac0e;logger[_0xc53a65(0x1d0)](colors[_0xc53a65(0x1d0)]+'Unhandled\x20Rejection\x20at:\x20'+_0xc74c2d+',\x20reason:\x20'+_0x1b9238+colors['reset']),_0x30fd39[_0xc53a65(0x1ce)](),process['exit'](0x1);}),await _0x30fd39[_0x67ac0e(0x187)]();}function _0x5b21(_0x5a1f39,_0x4a7b38){const _0xa90b09=_0xa90b();return _0x5b21=function(_0x5b21a3,_0x2ac484){_0x5b21a3=_0x5b21a3-0x167;let _0x380c63=_0xa90b09[_0x5b21a3];return _0x380c63;},_0x5b21(_0x5a1f39,_0x4a7b38);}main()[_0x1d599a(0x1c7)](_0x1282bb=>{const _0x93dd41=_0x1d599a;logger[_0x93dd41(0x1d0)](colors[_0x93dd41(0x1d0)]+_0x93dd41(0x1aa)+_0x1282bb[_0x93dd41(0x181)]+colors[_0x93dd41(0x18c)]),process[_0x93dd41(0x19d)](0x1);});function _0xa90b(){const _0x2bc840=['accounts','getNodes','performHealthCheck','getAccounts','Account:\x20','success','readFileSync','axiosTimeout','dataFile','Authorization','\x20|\x20Expires:\x20','loadAccounts','Error\x20loading\x20accounts:\x20','[UserID:\x20','exit','retryDelay','warn','from','map','\x20minute\x20interval','substr','ping','data.txt','8201150OVcDtH','baseUrl','info','Request\x20failed,\x20retrying\x20(','Fatal\x20error:\x20','/api/v1/nodes','5VTwgag','unknown','/ping','use','defaultInterval','split','11BBGOks','Health\x20check\x20failed:\x20','numeric','healthCheck','accountManager','2650986tBWJzm','\x20-\x20','parse','toLocaleString','838952DTrsqa','processAccount','reject','/api/v1/nodes/','length','Starting\x20ping\x20automation\x20with\x20','create','join','Health\x20check\x20passed','Uncaught\x20Exception:\x20','28iOZCOL','parseJwt','catch','headers','truncateString','makeRequest','utf8','Loaded\x20','nodeManager','stop','data','error','application/json','axios','en-US','...','/health','apiClient','interceptors','1741398foWkCo','get','accountInfo','2-digit','warning','Failed','response','2282108lnJBmV','custom','isRunning','formatDate','logTokenLength','\x20Ping:\x20','687kPiecu','Node:\x20','toString','Bearer\x20','\x20accounts','./src/utils/logger.js','Failed\x20to\x20get\x20nodes:\x20','unhandledRejection','trim','SIGINT','client','./src/utils/utils.js','message','21417wnyKBM','2174BOMWBp','retryAttempts','Error\x20processing\x20account:\x20','https://gateway-run.bls.dev','start','toISOString','./src/utils/helper.js','pubKey','Failed\x20to\x20ping\x20node:\x20','reset','pingNode','request'];_0xa90b=function(){return _0x2bc840;};return _0xa90b();}
+const fs = require('fs');
+const axios = require("axios");
+const displayBanner = require("../config/helper.js");
+const colors = require("../config/colors.js");
+const logger = require("../config/logger.js");
+const Utils = {
+  'sleep': _0x557fa2 => new Promise(_0x5a6414 => setTimeout(_0x5a6414, _0x557fa2)),
+  'getTimestamp': () => new Date().toISOString(),
+  'truncateString': (_0x5b6bc5, _0x1d30c4) => _0x5b6bc5 ? _0x5b6bc5.substr(0x0, _0x1d30c4) + "..." : 'unknown',
+  'parseJwt': _0x4b6a60 => {
+    try {
+      const _0x184a40 = _0x4b6a60.split('.')[0x1];
+      const _0x3277a0 = Buffer.from(_0x184a40, 'base64').toString("utf8");
+      return JSON.parse(_0x3277a0);
+    } catch (_0x55ecd9) {
+      return null;
+    }
+  },
+  'formatDate': _0x4b6b68 => {
+    const _0x1ab920 = new Date(_0x4b6b68 * 0x3e8);
+    return _0x1ab920.toLocaleString("en-US", {
+      'year': "numeric",
+      'month': '2-digit',
+      'day': '2-digit',
+      'hour': "2-digit",
+      'minute': "2-digit",
+      'hour12': false
+    });
+  }
+};
+class ApiClient {
+  constructor(_0x20747c) {
+    this.client = axios.create({
+      'baseURL': _0x20747c,
+      'timeout': 0x7530
+    });
+    this.client.interceptors.request.use(_0x46dd83 => {
+      if (_0x46dd83.headers.Authorization) {
+        const _0x5791ed = _0x46dd83.headers.Authorization.split(" ")[0x1];
+        if (_0x5791ed) {
+          const _0x3bb904 = Utils.parseJwt(_0x5791ed);
+          if (_0x3bb904) {}
+        }
+      }
+      return _0x46dd83;
+    }, _0x2d7cd3 => Promise.reject(_0x2d7cd3));
+    this.client.interceptors.response.use(_0x35d7c4 => _0x35d7c4, async _0x32d3e6 => {
+      if (_0x32d3e6.response) {
+        const {
+          status: _0x26e732,
+          data: _0x29f238
+        } = _0x32d3e6.response;
+        throw new Error("API Error: " + _0x26e732 + " - " + JSON.stringify(_0x29f238));
+      }
+      throw _0x32d3e6;
+    });
+  }
+  async ["healthCheck"]() {
+    try {
+      const _0x31f62a = await this.makeRequest('get', "/health");
+      return _0x31f62a.status === 'ok';
+    } catch (_0x5bb22a) {
+      logger.error(colors.error + "Health check failed: " + _0x5bb22a.message + colors.reset);
+      return false;
+    }
+  }
+  async ["makeRequest"](_0x4f780f, _0x41e829, _0x288f0f = null, _0x6109ca = {}, _0x9a14a = 0x0) {
+    try {
+      const _0x2a0bbd = await this.client({
+        'method': _0x4f780f,
+        'url': _0x41e829,
+        'data': _0x288f0f,
+        'headers': _0x6109ca
+      });
+      return _0x2a0bbd.data;
+    } catch (_0x4786c5) {
+      if (_0x9a14a < 0x3) {
+        logger.warn(colors.warning + "Request failed, retrying (" + (_0x9a14a + 0x1) + '/' + 0x3 + ')...' + colors.reset);
+        await Utils.sleep(0x1388);
+        return this.makeRequest(_0x4f780f, _0x41e829, _0x288f0f, _0x6109ca, _0x9a14a + 0x1);
+      }
+      throw _0x4786c5;
+    }
+  }
+}
+class AccountManager {
+  constructor() {
+    this.accounts = [];
+  }
+  ["loadAccounts"]() {
+    try {
+      const _0x7bf9f4 = fs.readFileSync("data.txt", "utf8");
+      const _0x2a4a0a = _0x7bf9f4.split("\n").map(_0x43a833 => _0x43a833.trim()).join('');
+      this.accounts = [_0x2a4a0a];
+      logger.success(colors.success + "Loaded " + this.accounts.length + " accounts" + colors.reset);
+      return true;
+    } catch (_0x3e01c2) {
+      logger.error(colors.error + "Error loading accounts: " + _0x3e01c2.message + colors.reset);
+      return false;
+    }
+  }
+  ['getAccounts']() {
+    return this.accounts;
+  }
+}
+class NodeManager {
+  constructor(_0x1a6686) {
+    this.apiClient = _0x1a6686;
+  }
+  async ["getNodes"](_0x152806) {
+    try {
+      return await this.apiClient.makeRequest("get", "/api/v1/nodes", null, {
+        'Authorization': "Bearer " + _0x152806,
+        'Accept': "application/json"
+      });
+    } catch (_0x38c5a0) {
+      logger.error(colors.error + "Failed to get nodes: " + _0x38c5a0.message + colors.reset);
+      return [];
+    }
+  }
+  async ["pingNode"](_0x527310, _0x183b36) {
+    try {
+      const _0x42a816 = await this.apiClient.makeRequest('post', "/api/v1/nodes/" + _0x183b36 + "/ping", {}, {
+        'Authorization': "Bearer " + _0x527310,
+        'Accept': 'application/json'
+      });
+      return _0x42a816.status === 'ok';
+    } catch (_0x41612) {
+      logger.error(colors.error + "Failed to ping node: " + _0x41612.message + colors.reset);
+      return false;
+    }
+  }
+}
+class PingAutomation {
+  constructor() {
+    this.apiClient = new ApiClient("https://gateway-run.bls.dev");
+    this.accountManager = new AccountManager();
+    this.nodeManager = new NodeManager(this.apiClient);
+    this.isRunning = false;
+  }
+  async ["performHealthCheck"]() {
+    logger.info(colors.info + "Performing health check..." + colors.reset);
+    const _0x593f09 = await this.apiClient.healthCheck();
+    if (!_0x593f09) {
+      logger.error(colors.error + "Service is not healthy, skipping ping cycle" + colors.reset);
+      return false;
+    }
+    logger.success(colors.success + "Health check passed" + colors.reset);
+    return true;
+  }
+  async ["processAccount"](_0x12bf4a) {
+    const _0x1d3d64 = Utils.parseJwt(_0x12bf4a);
+    const _0x373624 = await this.nodeManager.getNodes(_0x12bf4a);
+    const _0xe2634b = _0x12bf4a ? _0x12bf4a.substr(0x0, 0xa) + "..." : 'unknown';
+    const _0x370552 = _0x1d3d64 ? Utils.formatDate(_0x1d3d64.iat) : "unknown";
+    const _0x3ada03 = _0x1d3d64 ? Utils.formatDate(_0x1d3d64.exp) : 'unknown';
+    for (const _0x2d5111 of _0x373624) {
+      const _0x2e396d = _0x2d5111.pubKey;
+      const _0x561daf = _0x2e396d ? _0x2e396d.substr(0x0, 0xa) + "..." : 'unknown';
+      const _0x1405bb = await this.nodeManager.pingNode(_0x12bf4a, _0x2e396d);
+      const _0x127be5 = colors.accountInfo + "Account: " + _0xe2634b + colors.reset + " " + colors.accountName + "[UserID: " + (_0x1d3d64?.['userId'] || "unknown") + colors.reset + " " + colors.info + "| Issued: " + _0x370552 + " | Expires: " + _0x3ada03 + ']' + colors.reset + " " + colors.custom + "Node: " + _0x561daf + colors.reset + " Ping: " + (_0x1405bb ? colors.success + 'Success' : colors.error + "Failed") + colors.reset;
+      if (_0x1405bb) {
+        logger.success(_0x127be5);
+      } else {
+        logger.error(_0x127be5);
+      }
+    }
+  }
+  async ["start"](_0x2903d6 = 0x1) {
+    if (this.isRunning) {
+      logger.warn(colors.warning + "Automation is already running" + colors.reset);
+      return;
+    }
+    if (!this.accountManager.loadAccounts()) {
+      logger.error(colors.error + "Failed to load accounts, stopping automation" + colors.reset);
+      return;
+    }
+    this.isRunning = true;
+    logger.info(colors.info + "Starting ping automation with " + colors.brightCyan + _0x2903d6 + colors.info + " minute interval" + colors.reset);
+    while (this.isRunning) {
+      const _0x118ff4 = await this.performHealthCheck();
+      if (!_0x118ff4) {
+        await Utils.sleep(0x2710);
+        continue;
+      }
+      const _0x27bb7a = this.accountManager.getAccounts();
+      for (const _0x5ba87f of _0x27bb7a) {
+        await this.processAccount(_0x5ba87f)['catch'](_0x5b6e18 => {
+          logger.error(colors.error + "Error processing account: " + _0x5b6e18.message + colors.reset);
+        });
+      }
+      await Utils.sleep(_0x2903d6 * 0x3c * 0x3e8);
+    }
+  }
+  ["stop"]() {
+    this.isRunning = false;
+    logger.warn(colors.warning + "Stopping ping automation" + colors.reset);
+  }
+}
+async function main() {
+  displayBanner();
+  const _0x30fd39 = new PingAutomation();
+  process.on("SIGINT", () => {
+    _0x30fd39.stop();
+    process.exit(0x0);
+  });
+  process.on('uncaughtException', _0x34c083 => {
+    logger.error(colors.error + "Uncaught Exception: " + _0x34c083.message + colors.reset);
+    _0x30fd39.stop();
+    process.exit(0x1);
+  });
+  process.on("unhandledRejection", (_0x1b9238, _0xc74c2d) => {
+    logger.error(colors.error + "Unhandled Rejection at: " + _0xc74c2d + ", reason: " + _0x1b9238 + colors.reset);
+    _0x30fd39.stop();
+    process.exit(0x1);
+  });
+  await _0x30fd39.start();
+}
+main()["catch"](_0x1282bb => {
+  logger.error(colors.error + "Fatal error: " + _0x1282bb.message + colors.reset);
+  process.exit(0x1);
+});
