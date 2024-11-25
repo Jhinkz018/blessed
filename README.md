@@ -30,16 +30,15 @@ First, you need to register on Bless Network:
 
 ### 2. Installation
 
-```bash
-# Clone the repository
-git clone https://github.com/Rambeboy/bless-bot.git
+1. Clone the repository
+   ```bash
+   git clone https://github.com/Rambeboy/bless-bot.git && cd bless-bot
+   ```
 
-# Navigate to project directory
-cd bless-bot
-
-# Install dependencies
-npm install
-```
+2. Install dependencies
+   ```bash
+   npm install
+   ```
 
 ### 3. Configuration
 
@@ -49,8 +48,8 @@ npm install
 Example `data.txt`:
 
 ```
-eyJ
-eyj
+eyJ123
+eyj123
 ```
 
 ## Usage
