@@ -32,7 +32,7 @@ First, you need to register on Bless Network:
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/Rambeboy/bless-bot.git && cd bless-bot
+   git clone https://github.com/Jhinkz018/blessed.git && cd blessed
    ```
 
 2. Install dependencies
